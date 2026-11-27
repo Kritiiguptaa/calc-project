@@ -1,12 +1,21 @@
 """Simple command-line calculator for UCS 745 Cloud and DevOps, Assignment Q1."""
 
+import logging
 
-# add: returns the sum of two numbers, after validating that both really are numbers.
-# How it works: isinstance() checks each argument against int and float, and a
-# TypeError is raised for anything else so the bad value is caught early instead
-# of producing a nonsense result; valid values are then added with the + operator.
+# Send log messages to the console with the level and the message shown.
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+
+
+# add: returns the sum of two numbers, after validating both and logging the call.
+# How it works: the call is first recorded with logging.info() so the run can be
+# traced; isinstance() then checks each argument against int and float and raises
+# a TypeError for anything else, which is logged as an error before it is raised
+# so a bad call is visible in the log too; valid values are added with the +
+# operator. This keeps feature-a's validation and feature-b's logging together.
 def add(a, b):
+    logging.info("add() called with a=%s, b=%s", a, b)
     if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        logging.error("add() got a non-numeric argument: a=%r, b=%r", a, b)
         raise TypeError("add() expects two numbers")
     return a + b
 

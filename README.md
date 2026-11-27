@@ -1,4 +1,4 @@
-# Calculator Project - Input Validation Edition
+# Calculator Project - Input Validation and Logging Edition
 
 A small command-line calculator written in Python for the UCS 745 Cloud and DevOps
 lab assignment. The point of the project is to practise the Git and GitHub
@@ -10,6 +10,8 @@ workflow: branching, pushing, merging and resolving a merge conflict by hand.
 - Subtract two numbers
 - Multiply two numbers
 - Divide two numbers, with division-by-zero handled instead of crashing
+- Input validation on `add()`, which rejects non-numeric arguments with a `TypeError`
+- Logging on `add()`, which records every call (and any bad argument) to the console
 
 ## How to run
 
