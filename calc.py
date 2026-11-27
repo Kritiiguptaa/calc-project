@@ -1,9 +1,13 @@
 """Simple command-line calculator for UCS 745 Cloud and DevOps, Assignment Q1."""
 
 
-# add: returns the sum of two numbers.
-# How it works: takes the two values it is given and applies the + operator.
+# add: returns the sum of two numbers, after validating that both really are numbers.
+# How it works: isinstance() checks each argument against int and float, and a
+# TypeError is raised for anything else so the bad value is caught early instead
+# of producing a nonsense result; valid values are then added with the + operator.
 def add(a, b):
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("add() expects two numbers")
     return a + b
 
 
