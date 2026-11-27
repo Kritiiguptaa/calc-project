@@ -1,4 +1,4 @@
-# Calculator Project
+# Calculator Project - Logging Edition
 
 A small command-line calculator written in Python for the UCS 745 Cloud and DevOps
 lab assignment. The point of the project is to practise the Git and GitHub

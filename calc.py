@@ -1,9 +1,17 @@
 """Simple command-line calculator for UCS 745 Cloud and DevOps, Assignment Q1."""
 
+import logging
 
-# add: returns the sum of two numbers.
-# How it works: takes the two values it is given and applies the + operator.
+# Send log messages to the console with the level and the message shown.
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+
+
+# add: returns the sum of two numbers and records the call in the log.
+# How it works: logging.info() writes both operands to the log before the work is
+# done, which makes it possible to trace what the calculator was asked to do;
+# the two values are then added with the + operator.
 def add(a, b):
+    logging.info("add() called with a=%s, b=%s", a, b)
     return a + b
 
 
